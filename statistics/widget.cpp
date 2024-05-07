@@ -3,6 +3,7 @@
 #include <QPainter>
 #include <QPainterPath>
 #include <QStringList>
+#include <iostream>
 
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
@@ -28,7 +29,7 @@ Widget::~Widget()
 }
 
 
-void Widget::paintEvent (QPaintEvent * event, const std::vector<int> &v)
+void Widget::paintEvent (QPaintEvent * event)
 {
     QPainter painter (this);
     painter.setRenderHint (QPainter :: Antialiasing); // Anti-aliasing;
@@ -38,14 +39,33 @@ void Widget::paintEvent (QPaintEvent * event, const std::vector<int> &v)
     rect.setWidth (rect.width ()-1);
     rect.setHeight (rect.height ()-1);
     painter.drawRoundedRect (rect, 15, 15);
-    // You can also use QPainterPath to draw instead of painter.drawRoundedRect (rect, 15, 15);
     {
         QPainterPath painterPath;
         painterPath.addRoundedRect (rect, 15, 15);
         painter.drawPath (painterPath);
     }
     QWidget :: paintEvent (event);
+    if ((v.size() <= 10) && kost) {
+        QPainter painter(this);
 
+        QPen pen;  // перо по умолчанию
+        pen.setWidth(2); // толщина пера
+        pen.setBrush(Qt::black); // цвет пера
+        painter.setPen(pen);
+
+        double sum = 0;
+        for (int i : v) {
+            sum += i;
+        }
+        double coef = 16*360/sum;
+        double angle = 0;
+        for (int i = 0; i < v.size(); i++) {
+            int spanAngle = static_cast<int>(coef * v[i]);
+            painter.drawPie(90, 130, 100, 100, angle, spanAngle);
+            angle += spanAngle;
+        }
+        kost = false;
+    }
 }
 
 void Widget::on_pushButton_clicked()
@@ -101,12 +121,11 @@ void Widget::on_pushButton_5_clicked()
 
 void Widget::on_comboBox_textActivated(const QString &arg1)
 {
-
-    std::vector<int> v;
     if (ui->comboBox->currentText() == "Age") {
-        //v = {1, 4, 55, 7};
-        //repaint();
-        ui->pushButton_4->setVisible(true);
+        v = {1, 4, 55, 7, 10, 20};
+        kost = true;
+        repaint();
+
     }
 }
 

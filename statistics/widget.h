@@ -5,6 +5,7 @@
 #include <QPushButton>
 #include <QIcon>
 #include <QStyle>
+#include <QVector>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -21,7 +22,7 @@ public:
     ~Widget();
 
 protected:
-    void paintEvent(QPaintEvent *event, const std::vector<int> &);
+    void paintEvent(QPaintEvent *event);
 
 private slots:
     void on_pushButton_clicked();
@@ -37,6 +38,8 @@ private slots:
     void on_comboBox_textActivated(const QString &arg1);
 
 private:
+    QVector <int> v;
+    bool kost = false;
     Ui::Widget *ui;
 };
 #endif // WIDGET_H
