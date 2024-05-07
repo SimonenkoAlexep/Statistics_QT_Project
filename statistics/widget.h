@@ -21,7 +21,7 @@ public:
     ~Widget();
 
 protected:
-    void paintEvent(QPaintEvent *event);
+    void paintEvent(QPaintEvent *event, const std::vector<int> &);
 
 private slots:
     void on_pushButton_clicked();

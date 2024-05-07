@@ -8,7 +8,7 @@ Widget::Widget(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::Widget)
 {
-    QStringList PersonFields = (QStringList() << "-" << "Age" << "Skin color" << "Eye color" << "Hair coolor" << "Face shape" << "Eye shape");
+    QStringList PersonFields = (QStringList() << "-" << "Age" << "Skin color" << "Eye color" << "Hair color" << "Face shape" << "Eye shape");
     setFixedSize(308, 600);
     ui->setupUi(this);
     ui->pushButton_2->setVisible(false);
@@ -28,7 +28,7 @@ Widget::~Widget()
 }
 
 
-void Widget::paintEvent (QPaintEvent * event)
+void Widget::paintEvent (QPaintEvent * event, const std::vector<int> &v)
 {
     QPainter painter (this);
     painter.setRenderHint (QPainter :: Antialiasing); // Anti-aliasing;
@@ -45,6 +45,7 @@ void Widget::paintEvent (QPaintEvent * event)
         painter.drawPath (painterPath);
     }
     QWidget :: paintEvent (event);
+
 }
 
 void Widget::on_pushButton_clicked()
@@ -101,5 +102,11 @@ void Widget::on_pushButton_5_clicked()
 void Widget::on_comboBox_textActivated(const QString &arg1)
 {
 
+    std::vector<int> v;
+    if (ui->comboBox->currentText() == "Age") {
+        //v = {1, 4, 55, 7};
+        //repaint();
+        ui->pushButton_4->setVisible(true);
+    }
 }
 
