@@ -4,6 +4,8 @@
 #include <QPainterPath>
 #include <QStringList>
 #include <iostream>
+#include <algorithm>
+#include <QString>
 
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
@@ -61,10 +63,31 @@ void Widget::paintEvent (QPaintEvent * event)
         double angle = 0;
         for (int i = 0; i < v.size(); i++) {
             int spanAngle = static_cast<int>(coef * v[i]);
-            painter.drawPie(90, 130, 100, 100, angle, spanAngle);
+            painter.drawPie(60, 230, 200, 200, angle, spanAngle);
             angle += spanAngle;
         }
         kost = false;
+    }
+    if ((v.size() > 10) && kost) {
+        QPainter painter(this);
+
+        QPen pen;  // перо по умолчанию
+        pen.setWidth(2); // толщина пера
+        pen.setBrush(Qt::black); // цвет пера
+        painter.setPen(pen); // применяем настройки пера
+
+        int W = width(); // Ширина и высота окна
+        int H = height();
+        int d = 0.08*W;
+        QString str;
+
+        int v_max = *std::max_element(v.begin(), v.end());
+        double coef = 0.9*H/v_max;
+        for (int i = 0; i < v.size(); i++) {
+            painter.drawRect(QRect(QPoint(0.09*W + d*i, H - 0.05*H), QPoint(0.15*W+d*i, H - coef*v[i])));
+            painter.drawText(0.1*W + d*i, H - 0.03*H, str.setNum(v[i]));
+        }
+
     }
 }
 
@@ -122,10 +145,16 @@ void Widget::on_pushButton_5_clicked()
 void Widget::on_comboBox_textActivated(const QString &arg1)
 {
     if (ui->comboBox->currentText() == "Age") {
-        v = {1, 4, 55, 7, 10, 20};
+        v = {11, 4, 35, 7, 10, 20, 24, 17, 29, 36, 10};
+        std::sort(v.begin(), v.end());
         kost = true;
         repaint();
-
+    }
+    if (ui->comboBox->currentText() == "Skin color") {
+        v = {11, 4, 35, 7, 10, 20, 24};
+        std::sort(v.begin(), v.end());
+        kost = true;
+        repaint();
     }
 }
 
