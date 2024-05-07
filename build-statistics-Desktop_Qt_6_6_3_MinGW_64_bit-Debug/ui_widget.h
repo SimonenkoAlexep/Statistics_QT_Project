@@ -12,7 +12,6 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
-#include <QtWidgets/QDateEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
 
@@ -30,7 +29,6 @@ public:
     QComboBox *comboBox_2;
     QComboBox *comboBox_3;
     QComboBox *comboBox_4;
-    QDateEdit *dateEdit;
 
     void setupUi(QWidget *Widget)
     {
@@ -62,16 +60,13 @@ public:
         comboBox->setGeometry(QRect(60, 60, 82, 28));
         comboBox_2 = new QComboBox(Widget);
         comboBox_2->setObjectName("comboBox_2");
-        comboBox_2->setGeometry(QRect(60, 100, 82, 28));
+        comboBox_2->setGeometry(QRect(60, 60, 82, 28));
         comboBox_3 = new QComboBox(Widget);
         comboBox_3->setObjectName("comboBox_3");
-        comboBox_3->setGeometry(QRect(50, 130, 82, 28));
+        comboBox_3->setGeometry(QRect(60, 60, 82, 28));
         comboBox_4 = new QComboBox(Widget);
         comboBox_4->setObjectName("comboBox_4");
-        comboBox_4->setGeometry(QRect(40, 200, 82, 28));
-        dateEdit = new QDateEdit(Widget);
-        dateEdit->setObjectName("dateEdit");
-        dateEdit->setGeometry(QRect(170, 480, 110, 29));
+        comboBox_4->setGeometry(QRect(60, 60, 82, 28));
 
         retranslateUi(Widget);
 
