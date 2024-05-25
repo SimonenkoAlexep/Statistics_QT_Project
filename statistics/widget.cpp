@@ -1,19 +1,60 @@
 #include "widget.h"
+#include "person_data.h"
 #include "ui_widget.h"
 #include <QPainter>
 #include <QPainterPath>
 #include <QStringList>
-#include <iostream>
-#include <algorithm>
 #include <QString>
+#include <QtCharts/QtCharts>
+#include <QColor>
+#include <QGraphicsItem>
+#include <QGraphicsSceneMouseEvent>
+#include <QPainter>
+#include <QPointF>
+#include <QRectF>
+#include <QString>
+#include <QStyleOptionGraphicsItem>
+#include <Qt>
+#include <QtMinMax>
+#include <QtNumeric>
+#include <QtTypes>
+
 
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::Widget)
 {
     QStringList PersonFields = (QStringList() << "-" << "Age" << "Skin color" << "Eye color" << "Hair color" << "Face shape" << "Eye shape");
-    setFixedSize(308, 600);
     ui->setupUi(this);
+    this->setFixedSize(308, 600);
+    this->setWindowTitle("Statistics");
+    QString styleSheet = R"(
+        QWidget {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+        QLineEdit {
+            font-size: 16px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        QPushButton {
+            font-size: 16px;
+            padding: 7px;
+            background-color: #f0f0f0;
+            color: black;
+            border: none;
+            border-radius: 5px;
+        }
+        QPushButton:hover {
+            background-color: #45a049;
+        }
+    )";
+
+    // Установка стиля на главное окно
+    this->setStyleSheet(styleSheet);
     ui->pushButton_2->setVisible(false);
     ui->pushButton_3->setVisible(false);
     ui->pushButton_4->setVisible(false);
@@ -37,7 +78,7 @@ void Widget::paintEvent (QPaintEvent * event)
     painter.setRenderHint (QPainter :: Antialiasing); // Anti-aliasing;
     painter.setBrush (QBrush (Qt :: gray));
     painter.setPen (Qt :: transparent);
-    QRect rect = this-> rect ();
+    QRect rect = this->rect ();
     rect.setWidth (rect.width ()-1);
     rect.setHeight (rect.height ()-1);
     painter.drawRoundedRect (rect, 15, 15);
@@ -84,7 +125,7 @@ void Widget::paintEvent (QPaintEvent * event)
         int v_max = *std::max_element(v.begin(), v.end());
         double coef = 0.9*H/v_max;
         for (int i = 0; i < v.size(); i++) {
-            painter.drawRect(QRect(QPoint(0.09*W + d*i, H - 0.05*H), QPoint(0.15*W+d*i, H - coef*v[i])));
+            painter.drawRect(QRect(QPoint(0.09 * W + d*i, H - 0.05*H), QPoint(0.15*W+d*i, H - coef*v[i])));
             painter.drawText(0.1*W + d*i, H - 0.03*H, str.setNum(v[i]));
         }
 
@@ -101,7 +142,7 @@ void Widget::on_pushButton_clicked()
 }
 
 
-void Widget::on_pushButton_2_clicked()
+/*void Widget::on_pushButton_2_clicked()
 {
     ui->pushButton_2->setVisible(false);
     ui->pushButton_3->setVisible(false);
@@ -109,6 +150,12 @@ void Widget::on_pushButton_2_clicked()
     ui->pushButton_5->setVisible(false);
     ui->comboBox->setVisible(true);
 
+}*/
+
+void Widget::on_pushButton_2_clicked() {
+    Person_Data *person_info = new Person_Data(this);
+    person_info->show();
+    hide();
 }
 
 
@@ -145,10 +192,12 @@ void Widget::on_pushButton_5_clicked()
 void Widget::on_comboBox_textActivated(const QString &arg1)
 {
     if (ui->comboBox->currentText() == "Age") {
+        /*
         v = {11, 4, 35, 7, 10, 20, 24, 17, 29, 36, 10};
         std::sort(v.begin(), v.end());
         kost = true;
-        repaint();
+        repaint();*/
+        close();
     }
     if (ui->comboBox->currentText() == "Skin color") {
         v = {11, 4, 35, 7, 10, 20, 24};

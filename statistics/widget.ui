@@ -21,14 +21,18 @@
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>110</x>
-     <y>550</y>
-     <width>81</width>
-     <height>31</height>
+     <x>130</x>
+     <y>520</y>
+     <width>51</width>
+     <height>51</height>
     </rect>
    </property>
    <property name="text">
-    <string>STATISTICS</string>
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/images/plus.png</normaloff>:/images/plus.png</iconset>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_2">
@@ -38,26 +42,39 @@
    <property name="geometry">
     <rect>
      <x>110</x>
-     <y>70</y>
-     <width>83</width>
-     <height>29</height>
+     <y>80</y>
+     <width>81</width>
+     <height>71</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>7</pointsize>
+     <stylestrategy>PreferDefault</stylestrategy>
+    </font>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhNone</set>
    </property>
    <property name="text">
-    <string>PersonData</string>
+    <string>Person
+Data</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_3">
    <property name="geometry">
     <rect>
      <x>110</x>
-     <y>180</y>
+     <y>160</y>
      <width>83</width>
-     <height>29</height>
+     <height>71</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>7</pointsize>
+     <stylestrategy>PreferDefault</stylestrategy>
+    </font>
    </property>
    <property name="text">
     <string>BodyData</string>
@@ -67,10 +84,16 @@
    <property name="geometry">
     <rect>
      <x>110</x>
-     <y>290</y>
+     <y>240</y>
      <width>83</width>
-     <height>29</height>
+     <height>71</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>7</pointsize>
+     <stylestrategy>PreferDefault</stylestrategy>
+    </font>
    </property>
    <property name="text">
     <string>ItemData</string>
@@ -80,13 +103,19 @@
    <property name="geometry">
     <rect>
      <x>110</x>
-     <y>400</y>
+     <y>320</y>
      <width>83</width>
-     <height>29</height>
+     <height>71</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>7</pointsize>
+     <stylestrategy>PreferDefault</stylestrategy>
+    </font>
+   </property>
    <property name="text">
-    <string>IventData</string>
+    <string>EventData</string>
    </property>
   </widget>
   <widget class="QComboBox" name="comboBox">
@@ -129,7 +158,77 @@
     </rect>
    </property>
   </widget>
+  <widget class="QPushButton" name="pushButton_6">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>520</y>
+     <width>51</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/images/home.png</normaloff>:/images/home.png</iconset>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_7">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>520</y>
+     <width>51</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/images/play.png</normaloff>:/images/play.png</iconset>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_9">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>520</y>
+     <width>51</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/images/search.png</normaloff>:/images/search.png</iconset>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_10">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>520</y>
+     <width>51</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/images/user.png</normaloff>:/images/user.png</iconset>
+   </property>
+  </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="resource.qrc"/>
+ </resources>
  <connections/>
 </ui>
