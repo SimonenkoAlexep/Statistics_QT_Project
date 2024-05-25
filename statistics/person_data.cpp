@@ -240,7 +240,7 @@ void Person_Data::drawInteractiveChart() {
 
     // Генерируем данные
     for (int i = 0; i < 100; ++i) {
-        QPointF point(i, rand() % 100);
+        QPointF point(i, QRandomGenerator::global()->bounded(100));
         lineSeries->append(point);
         scatterSeries->append(point);
     }
@@ -268,12 +268,15 @@ void Person_Data::drawInteractiveChart() {
     scatterSeries->attachAxis(axisY);
 
     // Создаем представление диаграммы
-    chartView = new QChartView(chart);
+    QChartView *chartView = new QChartView(chart);
     chartView->setRenderHint(QPainter::Antialiasing);
 
     // Включаем масштабирование и панорамирование
     chartView->setRubberBand(QChartView::RectangleRubberBand);
     chartView->setInteractive(true);
+
+    // Подключаем сигнал hover для подсвечивания точек
+    connect(scatterSeries, &QScatterSeries::hovered, this, &Person_Data::showPointTooltip);
 
     // Создаем макет и добавляем представление диаграммы в него
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
@@ -281,7 +284,9 @@ void Person_Data::drawInteractiveChart() {
 
     // Устанавливаем макет для виджета
     setLayout(mainLayout);
+    setFixedSize(308, 600); // Устанавливаем фиксированный размер для основного окна
 }
+
 
 void Person_Data::showPointTooltip(const QPointF &point, bool state) {
     if (state) {
@@ -291,6 +296,7 @@ void Person_Data::showPointTooltip(const QPointF &point, bool state) {
         QToolTip::hideText();
     }
 }
+
 
 void Person_Data::Activated(int index) {
     // Проверяем, выбран ли определенный элемент по его индексу

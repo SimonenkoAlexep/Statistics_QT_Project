@@ -24,13 +24,14 @@ private slots:
     void RoundDiag();
     void drawBarChart();
     void drawLineChart();
+
+
     void drawInteractiveChart();
     void showPointTooltip(const QPointF &point, bool state);
 
 private:
     Ui::Person_Data *ui;
     QWidget *widget;
-    QChartView *chartView;
 };
 
 #endif // PERSON_DATA_H
