@@ -21,8 +21,10 @@
 #include <QtCharts/QChartView>
 #include <QtCharts/QPieSeries>
 #include <QtCharts/QPieSlice>
+#include <QStringList>
 
 #include <QChartView>
+#include <QtCharts/QtCharts>
 #include <QtWidgets/QApplication>
 #include <QtCharts/QChartView>
 #include <QtCharts/QPieSeries>
@@ -72,16 +74,22 @@ Person_Data::Person_Data(QWidget *widget, QWidget *parent)
     connect(ui->biton, &QPushButton::clicked, this, &Person_Data::returnTo);
 
 /*"Age" << "Skin color" << "Eye color" << "Hair color" << "Face shape" << "Eye shape"*/
-    ui->comboBox->addItem("Age");
+    /*ui->comboBox->addItem("Age");
     ui->comboBox->addItem("Skin color");
     ui->comboBox->addItem("Eye color");
     ui->comboBox->addItem("Hair color");
     ui->comboBox->addItem("Face shape");
-    ui->comboBox->addItem("Eye shape");
+    ui->comboBox->addItem("Eye shape");*/
+
+    QStringList person_list;
+    person_list << "Age" << "Skin color" << "Eye color" << "Hair color" << "Face shape" << "Eye shape";
+    ui->comboBox->addItems(person_list);
 
 
-    connect(ui->comboBox, QOverload<int>::of(&QComboBox::activated), this, &Person_Data::Activated);
+    //connect(ui->comboBox, QOverload<int>::of(&QComboBox::activated), this, &Person_Data::Activated);
 }
+
+
 void Person_Data::RoundDiag() {
 
     // Выполняем некоторые действия для выбранного элемента
@@ -110,6 +118,7 @@ void Person_Data::RoundDiag() {
     chartView->setFixedSize(308, 300);
     chartView->setRenderHint(QPainter::Antialiasing);
 
+
     // Подключаем событие customContextMenuRequested для обработки запроса на контекстное меню
 
 
@@ -119,7 +128,7 @@ void Person_Data::RoundDiag() {
 
 
     // Устанавливаем макет для виджета
-    setLayout(layout);
+    //setLayout(layout);
 }
 
 void Person_Data::drawBarChart() {
@@ -300,7 +309,7 @@ void Person_Data::showPointTooltip(const QPointF &point, bool state) {
 
 void Person_Data::Activated(int index) {
     // Проверяем, выбран ли определенный элемент по его индексу
-    if (index == 0) {
+    /*if (index == 0) {
         RoundDiag();
     }
     if (index == 1) {
@@ -311,7 +320,7 @@ void Person_Data::Activated(int index) {
     }
     if (index == 3) {
         drawInteractiveChart();
-    }
+    }*/
 }
 
 void Person_Data::returnTo() {
@@ -323,3 +332,17 @@ Person_Data::~Person_Data()
 {
     delete ui;
 }
+
+
+
+
+void Person_Data::on_comboBox_textActivated(const QString &arg1)
+{
+    if (ui->comboBox->currentText() == "Age") {
+        RoundDiag();
+    }
+    if (ui->comboBox->currentText() == "Skin color") {
+        RoundDiag();
+    }
+}
+

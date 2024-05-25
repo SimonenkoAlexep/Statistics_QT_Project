@@ -5,6 +5,7 @@
 #include "widget.h"
 #include <QChartView>
 #include <QPieSlice>
+#include <QVBoxLayout>
 
 namespace Ui {
 class Person_Data;
@@ -29,9 +30,12 @@ private slots:
     void drawInteractiveChart();
     void showPointTooltip(const QPointF &point, bool state);
 
+    void on_comboBox_textActivated(const QString &arg1);
+
 private:
     Ui::Person_Data *ui;
     QWidget *widget;
+    QBoxLayout *layout;
 };
 
 #endif // PERSON_DATA_H

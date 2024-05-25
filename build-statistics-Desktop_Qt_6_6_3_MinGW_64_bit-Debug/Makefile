@@ -258,6 +258,7 @@ Makefile: ../statistics/statistics.pro ../../../univers/6.6.3/mingw_64/mkspecs/w
 		../../../univers/6.6.3/mingw_64/mkspecs/features/qt_config.prf \
 		../../../univers/6.6.3/mingw_64/mkspecs/win32-g++/qmake.conf \
 		../../../univers/6.6.3/mingw_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../../univers/6.6.3/mingw_64/mkspecs/features/exclusive_builds.prf \
 		../../../univers/6.6.3/mingw_64/mkspecs/features/toolchain.prf \
 		../../../univers/6.6.3/mingw_64/mkspecs/features/default_pre.prf \
@@ -283,12 +284,15 @@ Makefile: ../statistics/statistics.pro ../../../univers/6.6.3/mingw_64/mkspecs/w
 		../../../univers/6.6.3/mingw_64/mkspecs/features/yacc.prf \
 		../../../univers/6.6.3/mingw_64/mkspecs/features/lex.prf \
 		../statistics/statistics.pro \
+		../../../univers/6.6.3/mingw_64/lib/Qt6Charts.prl \
+		../../../univers/6.6.3/mingw_64/lib/Qt6OpenGLWidgets.prl \
 		../../../univers/6.6.3/mingw_64/lib/Qt6Widgets.prl \
+		../../../univers/6.6.3/mingw_64/lib/Qt6OpenGL.prl \
 		../../../univers/6.6.3/mingw_64/lib/Qt6Gui.prl \
 		../../../univers/6.6.3/mingw_64/lib/Qt6Core.prl \
 		../../../univers/6.6.3/mingw_64/lib/Qt6EntryPoint.prl \
-		.qmake.stash \
-		../../../univers/6.6.3/mingw_64/mkspecs/features/build_pass.prf
+		../../../univers/6.6.3/mingw_64/mkspecs/features/build_pass.prf \
+		../statistics/resource.qrc
 	$(QMAKE) -o Makefile ..\statistics\statistics.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
 ../../../univers/6.6.3/mingw_64/mkspecs/features/spec_pre.prf:
 ../../../univers/6.6.3/mingw_64/mkspecs/features/device_config.prf:
@@ -478,6 +482,7 @@ Makefile: ../statistics/statistics.pro ../../../univers/6.6.3/mingw_64/mkspecs/w
 ../../../univers/6.6.3/mingw_64/mkspecs/features/qt_config.prf:
 ../../../univers/6.6.3/mingw_64/mkspecs/win32-g++/qmake.conf:
 ../../../univers/6.6.3/mingw_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../../univers/6.6.3/mingw_64/mkspecs/features/exclusive_builds.prf:
 ../../../univers/6.6.3/mingw_64/mkspecs/features/toolchain.prf:
 ../../../univers/6.6.3/mingw_64/mkspecs/features/default_pre.prf:
@@ -503,12 +508,15 @@ Makefile: ../statistics/statistics.pro ../../../univers/6.6.3/mingw_64/mkspecs/w
 ../../../univers/6.6.3/mingw_64/mkspecs/features/yacc.prf:
 ../../../univers/6.6.3/mingw_64/mkspecs/features/lex.prf:
 ../statistics/statistics.pro:
+../../../univers/6.6.3/mingw_64/lib/Qt6Charts.prl:
+../../../univers/6.6.3/mingw_64/lib/Qt6OpenGLWidgets.prl:
 ../../../univers/6.6.3/mingw_64/lib/Qt6Widgets.prl:
+../../../univers/6.6.3/mingw_64/lib/Qt6OpenGL.prl:
 ../../../univers/6.6.3/mingw_64/lib/Qt6Gui.prl:
 ../../../univers/6.6.3/mingw_64/lib/Qt6Core.prl:
 ../../../univers/6.6.3/mingw_64/lib/Qt6EntryPoint.prl:
-.qmake.stash:
 ../../../univers/6.6.3/mingw_64/mkspecs/features/build_pass.prf:
+../statistics/resource.qrc:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ..\statistics\statistics.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
 

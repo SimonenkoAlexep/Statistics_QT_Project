@@ -191,12 +191,12 @@ void Widget::on_pushButton_5_clicked()
 
 void Widget::on_comboBox_textActivated(const QString &arg1)
 {
-    if (ui->comboBox->currentText() == "Age") {
-        /*
+    /*if (ui->comboBox->currentText() == "Age") {
+
         v = {11, 4, 35, 7, 10, 20, 24, 17, 29, 36, 10};
         std::sort(v.begin(), v.end());
         kost = true;
-        repaint();*/
+        repaint();
         close();
     }
     if (ui->comboBox->currentText() == "Skin color") {
@@ -204,6 +204,6 @@ void Widget::on_comboBox_textActivated(const QString &arg1)
         std::sort(v.begin(), v.end());
         kost = true;
         repaint();
-    }
+    }*/
 }
 
