@@ -88,7 +88,7 @@ void Widget::paintEvent (QPaintEvent * event)
         painter.drawPath (painterPath);
     }
     QWidget :: paintEvent (event);
-    if ((v.size() <= 10) && kost) {
+    /*if ((v.size() <= 10) && kost) {
         QPainter painter(this);
 
         QPen pen;  // перо по умолчанию
@@ -129,7 +129,7 @@ void Widget::paintEvent (QPaintEvent * event)
             painter.drawText(0.1*W + d*i, H - 0.03*H, str.setNum(v[i]));
         }
 
-    }
+    }*/
 }
 
 void Widget::on_pushButton_clicked()

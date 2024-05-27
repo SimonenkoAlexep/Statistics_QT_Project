@@ -32,6 +32,7 @@
 #include <QtGui/QPainter>
 #include <QToolTip>
 #include <QMouseEvent>
+#include <QScrollArea>
 
 
 
@@ -113,18 +114,20 @@ void Person_Data::RoundDiag() {
     chart->legend()->setVisible(true);
     chart->legend()->setAlignment(Qt::AlignRight);
 
+
     // Создаем представление графика
     QChartView *chartView = new QChartView(chart);
-    chartView->setFixedSize(308, 300);
+    chartView->setFixedSize(308, 400);
     chartView->setRenderHint(QPainter::Antialiasing);
+    chartView->show();
 
 
     // Подключаем событие customContextMenuRequested для обработки запроса на контекстное меню
 
 
     // Создаем макет и добавляем представление графика в него
-    QVBoxLayout *layout = new QVBoxLayout(this);
-    layout->addWidget(chartView);
+    /*QVBoxLayout *layout = new QVBoxLayout(this);
+    layout->addWidget(chartView);*/
 
 
     // Устанавливаем макет для виджета
@@ -160,6 +163,7 @@ void Person_Data::drawBarChart() {
     chart->setTitle("Simple barchart example");
     chart->setAnimationOptions(QChart::SeriesAnimations);
 
+
     // Создаем категории осей
     QStringList categories;
     categories << "Jan" << "Feb" << "Mar" << "Apr" << "May" << "Jun";
@@ -179,10 +183,12 @@ void Person_Data::drawBarChart() {
     chartView->setRenderHint(QPainter::Antialiasing);
 
     // Устанавливаем размер диаграммы
-    chartView->setFixedSize(308, 300); // Задаем фиксированный размер для диаграммы
+    chartView->setFixedSize(308, 400); // Задаем фиксированный размер для диаграммы
+
+    chartView->show();
 
     // Центрирование диаграммы на экране
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+   /* QVBoxLayout *mainLayout = new QVBoxLayout(this);
     QHBoxLayout *hLayout = new QHBoxLayout();
     hLayout->addStretch();
     hLayout->addWidget(chartView);
@@ -191,7 +197,7 @@ void Person_Data::drawBarChart() {
     mainLayout->addLayout(hLayout);
     mainLayout->addStretch();
 
-    setLayout(mainLayout);
+    setLayout(mainLayout);*/
 }
 
 void Person_Data::drawLineChart() {
@@ -226,16 +232,32 @@ void Person_Data::drawLineChart() {
     QChartView *chartView = new QChartView(chart);
     chartView->setRenderHint(QPainter::Antialiasing);
 
+    // Устанавливаем минимальный размер для chartView, чтобы активировать прокрутку
+    chartView->setMinimumWidth(10000); // Установите ширину в соответствии с вашими потребностями
+
     // Включаем масштабирование и панорамирование
-    chartView->setRubberBand(QChartView::RectangleRubberBand);
+    chartView->setRubberBand(QChartView::HorizontalRubberBand);
     chartView->setInteractive(true);
 
-    // Создаем макет и добавляем представление диаграммы в него
+    QScrollArea *scrollArea = new QScrollArea();
+    scrollArea->setWidget(chartView);
+    scrollArea->setWidgetResizable(true);
+    scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOn); // Включаем горизонтальную полосу прокрутки
+
+    // Устанавливаем размер scrollArea, чтобы он был меньше, чем chartView
+    scrollArea->setFixedSize(308, 400); // Установите размер в соответствии с вашими потребностями
+
+    // Отображаем scrollArea
+    scrollArea->show();
+
+    //chartView->show();
+
+    /*// Создаем макет и добавляем представление диаграммы в него
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->addWidget(chartView);
 
     // Устанавливаем макет для виджета
-    setLayout(mainLayout);
+    setLayout(mainLayout);*/
 }
 
 void Person_Data::drawInteractiveChart() {
@@ -280,20 +302,26 @@ void Person_Data::drawInteractiveChart() {
     QChartView *chartView = new QChartView(chart);
     chartView->setRenderHint(QPainter::Antialiasing);
 
+    // Устанавливаем минимальный размер для chartView, чтобы активировать прокрутку
+    chartView->setMinimumWidth(1000); // Установите ширину в соответствии с вашими потребностями
+
     // Включаем масштабирование и панорамирование
-    chartView->setRubberBand(QChartView::RectangleRubberBand);
+    chartView->setRubberBand(QChartView::HorizontalRubberBand);
     chartView->setInteractive(true);
 
     // Подключаем сигнал hover для подсвечивания точек
     connect(scatterSeries, &QScatterSeries::hovered, this, &Person_Data::showPointTooltip);
 
-    // Создаем макет и добавляем представление диаграммы в него
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
-    mainLayout->addWidget(chartView);
+    QScrollArea *scrollArea = new QScrollArea();
+    scrollArea->setWidget(chartView);
+    scrollArea->setWidgetResizable(true);
+    scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOn); // Включаем горизонтальную полосу прокрутки
 
-    // Устанавливаем макет для виджета
-    setLayout(mainLayout);
-    setFixedSize(308, 600); // Устанавливаем фиксированный размер для основного окна
+    // Устанавливаем размер scrollArea, чтобы он был меньше, чем chartView
+    scrollArea->setFixedSize(308, 400); // Установите размер в соответствии с вашими потребностями
+
+    // Отображаем scrollArea
+    scrollArea->show();
 }
 
 
@@ -342,7 +370,13 @@ void Person_Data::on_comboBox_textActivated(const QString &arg1)
         RoundDiag();
     }
     if (ui->comboBox->currentText() == "Skin color") {
-        RoundDiag();
+        drawBarChart();
+    }
+    if (ui->comboBox->currentText() == "Eye color") {
+        drawLineChart();
+    }
+    if (ui->comboBox->currentText() == "Hair color") {
+        drawInteractiveChart();
     }
 }
 
