@@ -6,5 +6,6 @@
         <file>../images/home.png</file>
         <file>../images/user.png</file>
         <file>../images/png-clipart-flickr-logo-computer-icons-button-back-angle-text.png</file>
+        <file>data.txt</file>
     </qresource>
 </RCC>

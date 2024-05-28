@@ -35,8 +35,6 @@ private slots:
 
     void on_pushButton_5_clicked();
 
-    void on_comboBox_textActivated(const QString &arg1);
-
 private:
     QVector <int> v;
     bool kost = false;

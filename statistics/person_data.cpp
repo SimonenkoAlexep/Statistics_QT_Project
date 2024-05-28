@@ -1,5 +1,6 @@
 #include "person_data.h"
 #include "ui_person_data.h"
+#include "data.cpp"
 
 #include <vector>
 #include <iostream>
@@ -74,99 +75,68 @@ Person_Data::Person_Data(QWidget *widget, QWidget *parent)
 
     connect(ui->biton, &QPushButton::clicked, this, &Person_Data::returnTo);
 
-/*"Age" << "Skin color" << "Eye color" << "Hair color" << "Face shape" << "Eye shape"*/
-    /*ui->comboBox->addItem("Age");
-    ui->comboBox->addItem("Skin color");
-    ui->comboBox->addItem("Eye color");
-    ui->comboBox->addItem("Hair color");
-    ui->comboBox->addItem("Face shape");
-    ui->comboBox->addItem("Eye shape");*/
-
     QStringList person_list;
     person_list << "Age" << "Skin color" << "Eye color" << "Hair color" << "Face shape" << "Eye shape";
     ui->comboBox->addItems(person_list);
-
-
-    //connect(ui->comboBox, QOverload<int>::of(&QComboBox::activated), this, &Person_Data::Activated);
 }
 
 
-void Person_Data::RoundDiag() {
-
-    // Выполняем некоторые действия для выбранного элемента
+void Person_Data::RoundDiag(QString type) {
     QPieSeries *series = new QPieSeries();
-    series->append("Apple", 1);
 
-    series->append("Banana", 2);
-    series->append("Cherry", 3);
-    series->append("Orange", 4);
 
-    /*for (auto& i : a) {
-        series->append(i.first, i.second);
-    }*/
+    get_data(type, false);
+    for (auto i : global_data_map_string_int) {
+        QPieSlice *slice1 = new QPieSlice(i.first, i.second);
+        if (i.first == "Light") {
+            slice1->setBrush(QColor("#FFDEAD"));
+        } else if (i.first == "Dark") {
+            slice1->setBrush(QColor("#8B4513"));
+        } else {
+            slice1->setBrush(QColor(i.first));
+        }
+        series->append(slice1);
+    }
 
-    // Создаем объект графика и представления
     QChart *chart = new QChart();
     chart->addSeries(series);
     chart->setTitle("statistics");
 
-    // Устанавливаем опции для диаграммы
     chart->legend()->setVisible(true);
     chart->legend()->setAlignment(Qt::AlignRight);
 
-
-    // Создаем представление графика
     QChartView *chartView = new QChartView(chart);
     chartView->setFixedSize(308, 400);
     chartView->setRenderHint(QPainter::Antialiasing);
     chartView->show();
-
-
-    // Подключаем событие customContextMenuRequested для обработки запроса на контекстное меню
-
-
-    // Создаем макет и добавляем представление графика в него
-    /*QVBoxLayout *layout = new QVBoxLayout(this);
-    layout->addWidget(chartView);*/
-
-
-    // Устанавливаем макет для виджета
-    //setLayout(layout);
 }
 
-void Person_Data::drawBarChart() {
-    // Создаем набор данных для каждой категории
-    QBarSet *set0 = new QBarSet("Jane");
-    QBarSet *set1 = new QBarSet("John");
-    QBarSet *set2 = new QBarSet("Axel");
-    QBarSet *set3 = new QBarSet("Mary");
-    QBarSet *set4 = new QBarSet("Samantha");
+void Person_Data::drawBarChart(QString type) {
 
-    // Заполняем данные
-    *set0 << 1 << 2 << 3 << 4 << 5 << 6;
-    *set1 << 5 << 0 << 0 << 4 << 0 << 7;
-    *set2 << 3 << 5 << 8 << 13 << 8 << 5;
-    *set3 << 5 << 6 << 7 << 3 << 4 << 5;
-    *set4 << 9 << 7 << 5 << 3 << 1 << 2;
 
-    // Создаем серию и добавляем в нее наборы данных
+
+    get_data(type, false);
     QBarSeries *series = new QBarSeries();
-    series->append(set0);
-    series->append(set1);
-    series->append(set2);
-    series->append(set3);
-    series->append(set4);
 
-    // Создаем объект диаграммы и добавляем в него серию
+    for (auto i : global_data_map_string_int) {
+         QBarSet *set0 = new QBarSet(i.first);
+         *set0 << i.second;
+         if (i.first == "Light") {
+             set0->setBrush(QColor("#FFDEAD"));
+         } else if (i.first == "Dark") {
+             set0->setBrush(QColor("#8B4513"));
+         } else {
+             set0->setBrush(QColor(i.first));
+         }
+         series->append(set0);
+    }
+
     QChart *chart = new QChart();
     chart->addSeries(series);
-    chart->setTitle("Simple barchart example");
+    chart->setTitle(type);
     chart->setAnimationOptions(QChart::SeriesAnimations);
-
-
-    // Создаем категории осей
     QStringList categories;
-    categories << "Jan" << "Feb" << "Mar" << "Apr" << "May" << "Jun";
+    categories << "";
 
     QBarCategoryAxis *axisX = new QBarCategoryAxis();
     axisX->append(categories);
@@ -174,116 +144,38 @@ void Person_Data::drawBarChart() {
     series->attachAxis(axisX);
 
     QValueAxis *axisY = new QValueAxis();
-    axisY->setRange(0, 15);
+
     chart->addAxis(axisY, Qt::AlignLeft);
     series->attachAxis(axisY);
-
-    // Создаем представление диаграммы
     QChartView *chartView = new QChartView(chart);
     chartView->setRenderHint(QPainter::Antialiasing);
 
-    // Устанавливаем размер диаграммы
-    chartView->setFixedSize(308, 400); // Задаем фиксированный размер для диаграммы
+    chartView->setFixedSize(308, 400);
 
     chartView->show();
-
-    // Центрирование диаграммы на экране
-   /* QVBoxLayout *mainLayout = new QVBoxLayout(this);
-    QHBoxLayout *hLayout = new QHBoxLayout();
-    hLayout->addStretch();
-    hLayout->addWidget(chartView);
-    hLayout->addStretch();
-    mainLayout->addStretch();
-    mainLayout->addLayout(hLayout);
-    mainLayout->addStretch();
-
-    setLayout(mainLayout);*/
 }
 
-void Person_Data::drawLineChart() {
-    // Создаем серию
-    QLineSeries *series = new QLineSeries();
+void Person_Data::drawInteractiveChart(QString type) {
 
-    // Генерируем большое количество данных
-    for (int i = 0; i < 10000; ++i) {
-        series->append(i, rand() % 100); // Случайные данные
-    }
-
-    // Создаем объект диаграммы и добавляем в него серию
-    QChart *chart = new QChart();
-    chart->addSeries(series);
-    chart->setTitle("Line Chart with Large Data Set");
-    chart->setAnimationOptions(QChart::NoAnimation);
-
-    // Создаем оси
-    QValueAxis *axisX = new QValueAxis();
-    axisX->setLabelFormat("%i");
-    axisX->setTitleText("X Axis");
-    chart->addAxis(axisX, Qt::AlignBottom);
-    series->attachAxis(axisX);
-
-    QValueAxis *axisY = new QValueAxis();
-    axisY->setLabelFormat("%i");
-    axisY->setTitleText("Y Axis");
-    chart->addAxis(axisY, Qt::AlignLeft);
-    series->attachAxis(axisY);
-
-    // Создаем представление диаграммы
-    QChartView *chartView = new QChartView(chart);
-    chartView->setRenderHint(QPainter::Antialiasing);
-
-    // Устанавливаем минимальный размер для chartView, чтобы активировать прокрутку
-    chartView->setMinimumWidth(10000); // Установите ширину в соответствии с вашими потребностями
-
-    // Включаем масштабирование и панорамирование
-    chartView->setRubberBand(QChartView::HorizontalRubberBand);
-    chartView->setInteractive(true);
-
-    QScrollArea *scrollArea = new QScrollArea();
-    scrollArea->setWidget(chartView);
-    scrollArea->setWidgetResizable(true);
-    scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOn); // Включаем горизонтальную полосу прокрутки
-
-    // Устанавливаем размер scrollArea, чтобы он был меньше, чем chartView
-    scrollArea->setFixedSize(308, 400); // Установите размер в соответствии с вашими потребностями
-
-    // Отображаем scrollArea
-    scrollArea->show();
-
-    //chartView->show();
-
-    /*// Создаем макет и добавляем представление диаграммы в него
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
-    mainLayout->addWidget(chartView);
-
-    // Устанавливаем макет для виджета
-    setLayout(mainLayout);*/
-}
-
-void Person_Data::drawInteractiveChart() {
-    // Создаем линейную серию
     QLineSeries *lineSeries = new QLineSeries();
 
-    // Создаем серию точек
     QScatterSeries *scatterSeries = new QScatterSeries();
     scatterSeries->setMarkerShape(QScatterSeries::MarkerShapeCircle);
     scatterSeries->setMarkerSize(10.0);
 
-    // Генерируем данные
-    for (int i = 0; i < 100; ++i) {
-        QPointF point(i, QRandomGenerator::global()->bounded(100));
+    get_data(type, true);
+    for (auto i : global_data_map_int_int) {
+        QPointF point(i.first, i.second);
         lineSeries->append(point);
         scatterSeries->append(point);
     }
 
-    // Создаем объект диаграммы и добавляем серии
     QChart *chart = new QChart();
     chart->addSeries(lineSeries);
     chart->addSeries(scatterSeries);
     chart->setTitle("Interactive Line Chart with Highlighted Points");
     chart->setAnimationOptions(QChart::NoAnimation);
 
-    // Создаем оси
     QValueAxis *axisX = new QValueAxis();
     axisX->setLabelFormat("%i");
     axisX->setTitleText("X Axis");
@@ -298,29 +190,23 @@ void Person_Data::drawInteractiveChart() {
     lineSeries->attachAxis(axisY);
     scatterSeries->attachAxis(axisY);
 
-    // Создаем представление диаграммы
     QChartView *chartView = new QChartView(chart);
     chartView->setRenderHint(QPainter::Antialiasing);
 
-    // Устанавливаем минимальный размер для chartView, чтобы активировать прокрутку
-    chartView->setMinimumWidth(1000); // Установите ширину в соответствии с вашими потребностями
+    chartView->setMinimumWidth(1000);
 
-    // Включаем масштабирование и панорамирование
     chartView->setRubberBand(QChartView::HorizontalRubberBand);
     chartView->setInteractive(true);
 
-    // Подключаем сигнал hover для подсвечивания точек
     connect(scatterSeries, &QScatterSeries::hovered, this, &Person_Data::showPointTooltip);
 
     QScrollArea *scrollArea = new QScrollArea();
     scrollArea->setWidget(chartView);
     scrollArea->setWidgetResizable(true);
-    scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOn); // Включаем горизонтальную полосу прокрутки
+    scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
 
-    // Устанавливаем размер scrollArea, чтобы он был меньше, чем chartView
-    scrollArea->setFixedSize(308, 400); // Установите размер в соответствии с вашими потребностями
+    scrollArea->setFixedSize(308, 400);
 
-    // Отображаем scrollArea
     scrollArea->show();
 }
 
@@ -334,22 +220,6 @@ void Person_Data::showPointTooltip(const QPointF &point, bool state) {
     }
 }
 
-
-void Person_Data::Activated(int index) {
-    // Проверяем, выбран ли определенный элемент по его индексу
-    /*if (index == 0) {
-        RoundDiag();
-    }
-    if (index == 1) {
-        drawBarChart();
-    }
-    if (index == 2) {
-        drawLineChart();
-    }
-    if (index == 3) {
-        drawInteractiveChart();
-    }*/
-}
 
 void Person_Data::returnTo() {
     close();
@@ -367,16 +237,16 @@ Person_Data::~Person_Data()
 void Person_Data::on_comboBox_textActivated(const QString &arg1)
 {
     if (ui->comboBox->currentText() == "Age") {
-        RoundDiag();
+        drawInteractiveChart("Age");
     }
     if (ui->comboBox->currentText() == "Skin color") {
-        drawBarChart();
+        RoundDiag("Skin color");
     }
     if (ui->comboBox->currentText() == "Eye color") {
-        drawLineChart();
+        drawBarChart("Eye color");
     }
     if (ui->comboBox->currentText() == "Hair color") {
-        drawInteractiveChart();
+        RoundDiag("Hair color");
     }
 }
 

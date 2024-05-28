@@ -50,23 +50,20 @@ OBJECTS_DIR   = debug
 
 ####### Files
 
-SOURCES       = ..\statistics\data.cpp \
-		..\statistics\main.cpp \
+SOURCES       = ..\statistics\main.cpp \
 		..\statistics\person_data.cpp \
 		..\statistics\widget.cpp debug\qrc_resource.cpp \
 		debug\moc_person_data.cpp \
 		debug\moc_widget.cpp
-OBJECTS       = debug/data.o \
-		debug/main.o \
+OBJECTS       = debug/main.o \
 		debug/person_data.o \
 		debug/widget.o \
 		debug/qrc_resource.o \
 		debug/moc_person_data.o \
 		debug/moc_widget.o
 
-DIST          =  ..\statistics\person_data.h \
-		..\statistics\widget.h ..\statistics\data.cpp \
-		..\statistics\main.cpp \
+DIST          = data.txt ..\statistics\person_data.h \
+		..\statistics\widget.h ..\statistics\main.cpp \
 		..\statistics\person_data.cpp \
 		..\statistics\widget.cpp
 QMAKE_TARGET  = statistics
@@ -91,7 +88,7 @@ dist:
 	$(ZIP) statistics.zip $(SOURCES) $(DIST) ..\statistics\statistics.pro ..\..\..\univers\6.6.3\mingw_64\mkspecs\features\spec_pre.prf ..\..\..\univers\6.6.3\mingw_64\mkspecs\features\device_config.prf ..\..\..\univers\6.6.3\mingw_64\mkspecs\common\sanitize.conf ..\..\..\univers\6.6.3\mingw_64\mkspecs\common\gcc-base.conf ..\..\..\univers\6.6.3\mingw_64\mkspecs\common\g++-base.conf ..\..\..\univers\6.6.3\mingw_64\mkspecs\features\win32\windows_vulkan_sdk.prf ..\..\..\univers\6.6.3\mingw_64\mkspecs\common\windows-vulkan.conf ..\..\..\univers\6.6.3\mingw_64\mkspecs\common\g++-win32.conf ..\..\..\univers\6.6.3\mingw_64\mkspecs\common\windows-desktop.conf ..\..\..\univers\6.6.3\mingw_64\mkspecs\qconfig.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_ext_freetype.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_ext_libjpeg.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_ext_libpng.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_charts.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_charts_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_chartsqml.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_chartsqml_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_concurrent.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_concurrent_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_core.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_core_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_dbus.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_dbus_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_designer.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_designer_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_designercomponents_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_devicediscovery_support_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_entrypoint_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_example_icons_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_fb_support_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_freetype_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_gui.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_gui_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_harfbuzz_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_help.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_help_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_jpeg_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_labsanimation.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_labsanimation_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_labsfolderlistmodel.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_labsfolderlistmodel_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_labsqmlmodels.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_labsqmlmodels_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_labssettings.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_labssettings_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_labssharedimage.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_labssharedimage_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_labswavefrontmesh.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_labswavefrontmesh_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_linguist.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_linguist_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_multimedia.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_multimedia_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_multimediaquick_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_multimediawidgets.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_multimediawidgets_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_network.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_network_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_opengl.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_opengl_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_openglwidgets.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_openglwidgets_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_packetprotocol_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_png_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_printsupport.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_printsupport_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_qdoccatch_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_qdoccatchconversionsprivate.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_qdoccatchconversionsprivate_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_qdoccatchgeneratorsprivate.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_qdoccatchgeneratorsprivate_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_qml.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_qml_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_qmlcompiler.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_qmlcompiler_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_qmlcore.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_qmlcore_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_qmldebug_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_qmldom_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_qmlintegration.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_qmlintegration_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_qmllocalstorage.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_qmllocalstorage_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_qmlls_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_qmlmodels.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_qmlmodels_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_qmltest.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_qmltest_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_qmltoolingsettings_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_qmltyperegistrar_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_qmlworkerscript.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_qmlworkerscript_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_qmlxmllistmodel.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_qmlxmllistmodel_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quick.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quick3d.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quick3d_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quick3dassetimport.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quick3dassetimport_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quick3dassetutils.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quick3dassetutils_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quick3deffects.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quick3deffects_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quick3dglslparser_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quick3dhelpers.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quick3dhelpers_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quick3dhelpersimpl.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quick3dhelpersimpl_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quick3diblbaker.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quick3diblbaker_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quick3dparticleeffects.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quick3dparticleeffects_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quick3dparticles.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quick3dparticles_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quick3druntimerender.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quick3druntimerender_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quick3dspatialaudio_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quick3dutils.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quick3dutils_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quick_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quickcontrols2.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quickcontrols2_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quickcontrols2basic.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quickcontrols2basic_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quickcontrols2basicstyleimpl.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quickcontrols2basicstyleimpl_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quickcontrols2fusion.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quickcontrols2fusion_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quickcontrols2fusionstyleimpl.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quickcontrols2fusionstyleimpl_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quickcontrols2imagine.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quickcontrols2imagine_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quickcontrols2imaginestyleimpl.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quickcontrols2imaginestyleimpl_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quickcontrols2impl.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quickcontrols2impl_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quickcontrols2material.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quickcontrols2material_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quickcontrols2materialstyleimpl.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quickcontrols2materialstyleimpl_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quickcontrols2universal.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quickcontrols2universal_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quickcontrols2universalstyleimpl.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quickcontrols2universalstyleimpl_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quickcontrolstestutilsprivate_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quickdialogs2.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quickdialogs2_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quickdialogs2quickimpl.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quickdialogs2quickimpl_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quickdialogs2utils.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quickdialogs2utils_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quickeffects_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quicklayouts.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quicklayouts_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quickparticles_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quickshapes_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quicktemplates2.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quicktemplates2_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quicktestutilsprivate_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quicktimeline.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quicktimeline_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quickwidgets.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_quickwidgets_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_shadertools.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_shadertools_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_spatialaudio.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_spatialaudio_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_sql.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_sql_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_svg.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_svg_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_svgwidgets.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_svgwidgets_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_testlib.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_testlib_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_tools_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_uiplugin.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_uitools.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_uitools_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_widgets.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_widgets_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_xml.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_xml_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\modules\qt_lib_zlib_private.pri ..\..\..\univers\6.6.3\mingw_64\mkspecs\features\qt_functions.prf ..\..\..\univers\6.6.3\mingw_64\mkspecs\features\qt_config.prf ..\..\..\univers\6.6.3\mingw_64\mkspecs\win32-g++\qmake.conf ..\..\..\univers\6.6.3\mingw_64\mkspecs\features\spec_post.prf .qmake.stash ..\..\..\univers\6.6.3\mingw_64\mkspecs\features\exclusive_builds.prf ..\..\..\univers\6.6.3\mingw_64\mkspecs\features\toolchain.prf ..\..\..\univers\6.6.3\mingw_64\mkspecs\features\default_pre.prf ..\..\..\univers\6.6.3\mingw_64\mkspecs\features\win32\default_pre.prf ..\..\..\univers\6.6.3\mingw_64\mkspecs\features\resolve_config.prf ..\..\..\univers\6.6.3\mingw_64\mkspecs\features\exclusive_builds_post.prf ..\..\..\univers\6.6.3\mingw_64\mkspecs\features\default_post.prf ..\..\..\univers\6.6.3\mingw_64\mkspecs\features\build_pass.prf ..\..\..\univers\6.6.3\mingw_64\mkspecs\features\qml_debug.prf ..\..\..\univers\6.6.3\mingw_64\mkspecs\features\precompile_header.prf ..\..\..\univers\6.6.3\mingw_64\mkspecs\features\warn_on.prf ..\..\..\univers\6.6.3\mingw_64\mkspecs\features\permissions.prf ..\..\..\univers\6.6.3\mingw_64\mkspecs\features\qt.prf ..\..\..\univers\6.6.3\mingw_64\mkspecs\features\resources_functions.prf ..\..\..\univers\6.6.3\mingw_64\mkspecs\features\resources.prf ..\..\..\univers\6.6.3\mingw_64\mkspecs\features\moc.prf ..\..\..\univers\6.6.3\mingw_64\mkspecs\features\win32\opengl.prf ..\..\..\univers\6.6.3\mingw_64\mkspecs\features\uic.prf ..\..\..\univers\6.6.3\mingw_64\mkspecs\features\qmake_use.prf ..\..\..\univers\6.6.3\mingw_64\mkspecs\features\file_copies.prf ..\..\..\univers\6.6.3\mingw_64\mkspecs\features\win32\windows.prf ..\..\..\univers\6.6.3\mingw_64\mkspecs\features\testcase_targets.prf ..\..\..\univers\6.6.3\mingw_64\mkspecs\features\exceptions.prf ..\..\..\univers\6.6.3\mingw_64\mkspecs\features\yacc.prf ..\..\..\univers\6.6.3\mingw_64\mkspecs\features\lex.prf ..\statistics\statistics.pro ..\statistics\resource.qrc ..\..\..\univers\6.6.3\mingw_64\lib\Qt6Charts.prl ..\..\..\univers\6.6.3\mingw_64\lib\Qt6OpenGLWidgets.prl ..\..\..\univers\6.6.3\mingw_64\lib\Qt6Widgets.prl ..\..\..\univers\6.6.3\mingw_64\lib\Qt6OpenGL.prl ..\..\..\univers\6.6.3\mingw_64\lib\Qt6Gui.prl ..\..\..\univers\6.6.3\mingw_64\lib\Qt6Core.prl ..\..\..\univers\6.6.3\mingw_64\lib\Qt6EntryPoint.prl   ..\statistics\resource.qrc ..\..\..\univers\6.6.3\mingw_64\mkspecs\features\data\dummy.cpp ..\statistics\person_data.h ..\statistics\widget.h  ..\statistics\data.cpp ..\statistics\main.cpp ..\statistics\person_data.cpp ..\statistics\widget.cpp ..\statistics\person_data.ui ..\statistics\widget.ui    
 
 clean: compiler_clean 
-	-$(DEL_FILE) debug\data.o debug\main.o debug\person_data.o debug\widget.o debug\qrc_resource.o debug\moc_person_data.o debug\moc_widget.o
+	-$(DEL_FILE) debug\main.o debug\person_data.o debug\widget.o debug\qrc_resource.o debug\moc_person_data.o debug\moc_widget.o
 
 distclean: clean 
 	-$(DEL_FILE) .qmake.stash
@@ -113,6 +110,7 @@ compiler_rcc_clean:
 	-$(DEL_FILE) debug\qrc_resource.cpp
 debug/qrc_resource.cpp: ../statistics/resource.qrc \
 		../../../univers/6.6.3/mingw_64/bin/rcc.exe \
+		../statistics/data.txt \
 		../images/png-clipart-flickr-logo-computer-icons-button-back-angle-text.png \
 		../images/plus.png \
 		../images/search.png \
@@ -337,6 +335,11 @@ debug/moc_person_data.cpp: ../statistics/person_data.h \
 		../../../univers/6.6.3/mingw_64/include/QtWidgets/qgraphicsscene.h \
 		../../../univers/6.6.3/mingw_64/include/QtCharts/QPieSlice \
 		../../../univers/6.6.3/mingw_64/include/QtCharts/qpieslice.h \
+		../../../univers/6.6.3/mingw_64/include/QtWidgets/QVBoxLayout \
+		../../../univers/6.6.3/mingw_64/include/QtWidgets/qboxlayout.h \
+		../../../univers/6.6.3/mingw_64/include/QtWidgets/qlayout.h \
+		../../../univers/6.6.3/mingw_64/include/QtWidgets/qlayoutitem.h \
+		../../../univers/6.6.3/mingw_64/include/QtWidgets/qgridlayout.h \
 		debug/moc_predefs.h \
 		../../../univers/6.6.3/mingw_64/bin/moc.exe
 	D:\univers\6.6.3\mingw_64\bin\moc.exe $(DEFINES) --include D:/Statistics_QT/Statistics_QT_Project/build-statistics-Desktop_Qt_6_6_3_MinGW_64_bit-Debug/debug/moc_predefs.h -ID:/univers/6.6.3/mingw_64/mkspecs/win32-g++ -ID:/Statistics_QT/Statistics_QT_Project/statistics -ID:/univers/6.6.3/mingw_64/include -ID:/univers/6.6.3/mingw_64/include/QtCharts -ID:/univers/6.6.3/mingw_64/include/QtOpenGLWidgets -ID:/univers/6.6.3/mingw_64/include/QtWidgets -ID:/univers/6.6.3/mingw_64/include/QtOpenGL -ID:/univers/6.6.3/mingw_64/include/QtGui -ID:/univers/6.6.3/mingw_64/include/QtCore -I. -ID:/univers/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -ID:/univers/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -ID:/univers/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -ID:/univers/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -ID:/univers/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -ID:/univers/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\statistics\person_data.h -o debug\moc_person_data.cpp
@@ -542,9 +545,6 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 
 
 ####### Compile
-
-debug/data.o: ../statistics/data.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\data.o ..\statistics\data.cpp
 
 debug/main.o: ../statistics/main.cpp ../statistics/widget.h \
 		../../../univers/6.6.3/mingw_64/include/QtWidgets/QWidget \
@@ -948,18 +948,58 @@ debug/person_data.o: ../statistics/person_data.cpp ../statistics/person_data.h \
 		../../../univers/6.6.3/mingw_64/include/QtWidgets/qgraphicsscene.h \
 		../../../univers/6.6.3/mingw_64/include/QtCharts/QPieSlice \
 		../../../univers/6.6.3/mingw_64/include/QtCharts/qpieslice.h \
-		ui_person_data.h \
-		../../../univers/6.6.3/mingw_64/include/QtCore/QString \
-		../../../univers/6.6.3/mingw_64/include/QtWidgets/QLabel \
-		../../../univers/6.6.3/mingw_64/include/QtWidgets/qlabel.h \
-		../../../univers/6.6.3/mingw_64/include/QtGui/qpicture.h \
-		../../../univers/6.6.3/mingw_64/include/QtGui/qtextdocument.h \
-		../../../univers/6.6.3/mingw_64/include/QtWidgets/QScrollArea \
 		../../../univers/6.6.3/mingw_64/include/QtWidgets/QVBoxLayout \
 		../../../univers/6.6.3/mingw_64/include/QtWidgets/qboxlayout.h \
 		../../../univers/6.6.3/mingw_64/include/QtWidgets/qlayout.h \
 		../../../univers/6.6.3/mingw_64/include/QtWidgets/qlayoutitem.h \
 		../../../univers/6.6.3/mingw_64/include/QtWidgets/qgridlayout.h \
+		ui_person_data.h \
+		../../../univers/6.6.3/mingw_64/include/QtWidgets/QApplication \
+		../../../univers/6.6.3/mingw_64/include/QtWidgets/qapplication.h \
+		../../../univers/6.6.3/mingw_64/include/QtCore/qcoreapplication.h \
+		../../../univers/6.6.3/mingw_64/include/QtCore/qeventloop.h \
+		../../../univers/6.6.3/mingw_64/include/QtCore/qcoreapplication_platform.h \
+		../../../univers/6.6.3/mingw_64/include/QtCore/qfuture.h \
+		../../../univers/6.6.3/mingw_64/include/QtCore/qfutureinterface.h \
+		../../../univers/6.6.3/mingw_64/include/QtCore/qmutex.h \
+		../../../univers/6.6.3/mingw_64/include/QtCore/qdeadlinetimer.h \
+		../../../univers/6.6.3/mingw_64/include/QtCore/qelapsedtimer.h \
+		../../../univers/6.6.3/mingw_64/include/QtCore/qtsan_impl.h \
+		../../../univers/6.6.3/mingw_64/include/QtCore/qresultstore.h \
+		../../../univers/6.6.3/mingw_64/include/QtCore/qfuture_impl.h \
+		../../../univers/6.6.3/mingw_64/include/QtCore/qthreadpool.h \
+		../../../univers/6.6.3/mingw_64/include/QtCore/qthread.h \
+		../../../univers/6.6.3/mingw_64/include/QtCore/qrunnable.h \
+		../../../univers/6.6.3/mingw_64/include/QtCore/qexception.h \
+		../../../univers/6.6.3/mingw_64/include/QtCore/qpromise.h \
+		../../../univers/6.6.3/mingw_64/include/QtGui/qguiapplication.h \
+		../../../univers/6.6.3/mingw_64/include/QtGui/qinputmethod.h \
+		../../../univers/6.6.3/mingw_64/include/QtCore/qlocale.h \
+		../../../univers/6.6.3/mingw_64/include/QtGui/qguiapplication_platform.h \
+		../../../univers/6.6.3/mingw_64/include/QtWidgets/QComboBox \
+		../../../univers/6.6.3/mingw_64/include/QtWidgets/qcombobox.h \
+		../../../univers/6.6.3/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
+		../../../univers/6.6.3/mingw_64/include/QtWidgets/qstyleoption.h \
+		../../../univers/6.6.3/mingw_64/include/QtWidgets/qabstractspinbox.h \
+		../../../univers/6.6.3/mingw_64/include/QtGui/qvalidator.h \
+		../../../univers/6.6.3/mingw_64/include/QtCore/qregularexpression.h \
+		../../../univers/6.6.3/mingw_64/include/QtWidgets/qslider.h \
+		../../../univers/6.6.3/mingw_64/include/QtWidgets/qabstractslider.h \
+		../../../univers/6.6.3/mingw_64/include/QtWidgets/qtabbar.h \
+		../../../univers/6.6.3/mingw_64/include/QtWidgets/qtabwidget.h \
+		../../../univers/6.6.3/mingw_64/include/QtWidgets/qrubberband.h \
+		../../../univers/6.6.3/mingw_64/include/QtCore/qabstractitemmodel.h \
+		../statistics/data.cpp \
+		../../../univers/6.6.3/mingw_64/include/QtCore/QString \
+		../../../univers/6.6.3/mingw_64/include/QtCore/QTextStream \
+		../../../univers/6.6.3/mingw_64/include/QtCore/QFile \
+		../../../univers/6.6.3/mingw_64/include/QtCore/qfile.h \
+		../../../univers/6.6.3/mingw_64/include/QtCore/qfiledevice.h \
+		../../../univers/6.6.3/mingw_64/include/QtWidgets/QLabel \
+		../../../univers/6.6.3/mingw_64/include/QtWidgets/qlabel.h \
+		../../../univers/6.6.3/mingw_64/include/QtGui/qpicture.h \
+		../../../univers/6.6.3/mingw_64/include/QtGui/qtextdocument.h \
+		../../../univers/6.6.3/mingw_64/include/QtWidgets/QScrollArea \
 		../../../univers/6.6.3/mingw_64/include/QtCharts/QPieSeries \
 		../../../univers/6.6.3/mingw_64/include/QtCharts/qpieseries.h \
 		../../../univers/6.6.3/mingw_64/include/QtCharts/QtCharts \
@@ -972,28 +1012,11 @@ debug/person_data.o: ../statistics/person_data.cpp ../statistics/person_data.h \
 		../../../univers/6.6.3/mingw_64/include/QtCore/q23functional.h \
 		../../../univers/6.6.3/mingw_64/include/QtCore/qabstractanimation.h \
 		../../../univers/6.6.3/mingw_64/include/QtCore/qabstracteventdispatcher.h \
-		../../../univers/6.6.3/mingw_64/include/QtCore/qeventloop.h \
-		../../../univers/6.6.3/mingw_64/include/QtCore/qabstractitemmodel.h \
 		../../../univers/6.6.3/mingw_64/include/QtCore/qabstractnativeeventfilter.h \
 		../../../univers/6.6.3/mingw_64/include/QtCore/qabstractproxymodel.h \
 		../../../univers/6.6.3/mingw_64/include/QtCore/qanimationgroup.h \
 		../../../univers/6.6.3/mingw_64/include/QtCore/qapplicationstatic.h \
 		../../../univers/6.6.3/mingw_64/include/QtCore/QMutex \
-		../../../univers/6.6.3/mingw_64/include/QtCore/qmutex.h \
-		../../../univers/6.6.3/mingw_64/include/QtCore/qdeadlinetimer.h \
-		../../../univers/6.6.3/mingw_64/include/QtCore/qelapsedtimer.h \
-		../../../univers/6.6.3/mingw_64/include/QtCore/qtsan_impl.h \
-		../../../univers/6.6.3/mingw_64/include/QtCore/qcoreapplication.h \
-		../../../univers/6.6.3/mingw_64/include/QtCore/qcoreapplication_platform.h \
-		../../../univers/6.6.3/mingw_64/include/QtCore/qfuture.h \
-		../../../univers/6.6.3/mingw_64/include/QtCore/qfutureinterface.h \
-		../../../univers/6.6.3/mingw_64/include/QtCore/qresultstore.h \
-		../../../univers/6.6.3/mingw_64/include/QtCore/qfuture_impl.h \
-		../../../univers/6.6.3/mingw_64/include/QtCore/qthreadpool.h \
-		../../../univers/6.6.3/mingw_64/include/QtCore/qthread.h \
-		../../../univers/6.6.3/mingw_64/include/QtCore/qrunnable.h \
-		../../../univers/6.6.3/mingw_64/include/QtCore/qexception.h \
-		../../../univers/6.6.3/mingw_64/include/QtCore/qpromise.h \
 		../../../univers/6.6.3/mingw_64/include/QtCore/qassociativeiterable.h \
 		../../../univers/6.6.3/mingw_64/include/QtCore/qbasictimer.h \
 		../../../univers/6.6.3/mingw_64/include/QtCore/qbitarray.h \
@@ -1001,12 +1024,10 @@ debug/person_data.o: ../statistics/person_data.cpp ../statistics/person_data.h \
 		../../../univers/6.6.3/mingw_64/include/QtCore/qbytearraymatcher.h \
 		../../../univers/6.6.3/mingw_64/include/QtCore/qcache.h \
 		../../../univers/6.6.3/mingw_64/include/QtCore/qcalendar.h \
-		../../../univers/6.6.3/mingw_64/include/QtCore/qlocale.h \
 		../../../univers/6.6.3/mingw_64/include/QtCore/qcborarray.h \
 		../../../univers/6.6.3/mingw_64/include/QtCore/qcborvalue.h \
 		../../../univers/6.6.3/mingw_64/include/QtCore/qdatetime.h \
 		../../../univers/6.6.3/mingw_64/include/QtCore/qcborcommon.h \
-		../../../univers/6.6.3/mingw_64/include/QtCore/qregularexpression.h \
 		../../../univers/6.6.3/mingw_64/include/QtCore/quuid.h \
 		../../../univers/6.6.3/mingw_64/include/QtCore/qendian.h \
 		../../../univers/6.6.3/mingw_64/include/QtCore/qcbormap.h \
@@ -1019,8 +1040,6 @@ debug/person_data.o: ../statistics/person_data.cpp ../statistics/person_data.h \
 		../../../univers/6.6.3/mingw_64/include/QtCore/qconcatenatetablesproxymodel.h \
 		../../../univers/6.6.3/mingw_64/include/QtCore/qcryptographichash.h \
 		../../../univers/6.6.3/mingw_64/include/QtCore/qdir.h \
-		../../../univers/6.6.3/mingw_64/include/QtCore/qfile.h \
-		../../../univers/6.6.3/mingw_64/include/QtCore/qfiledevice.h \
 		../../../univers/6.6.3/mingw_64/include/QtCore/qfileinfo.h \
 		../../../univers/6.6.3/mingw_64/include/QtCore/qtimezone.h \
 		../../../univers/6.6.3/mingw_64/include/QtCore/qdiriterator.h \
@@ -1133,9 +1152,6 @@ debug/person_data.o: ../statistics/person_data.cpp ../statistics/person_data.h \
 		../../../univers/6.6.3/mingw_64/include/QtGui/qgenericmatrix.h \
 		../../../univers/6.6.3/mingw_64/include/QtGui/qgenericplugin.h \
 		../../../univers/6.6.3/mingw_64/include/QtGui/qgenericpluginfactory.h \
-		../../../univers/6.6.3/mingw_64/include/QtGui/qguiapplication.h \
-		../../../univers/6.6.3/mingw_64/include/QtGui/qinputmethod.h \
-		../../../univers/6.6.3/mingw_64/include/QtGui/qguiapplication_platform.h \
 		../../../univers/6.6.3/mingw_64/include/QtGui/qiconengine.h \
 		../../../univers/6.6.3/mingw_64/include/QtGui/qiconengineplugin.h \
 		../../../univers/6.6.3/mingw_64/include/QtGui/qimageiohandler.h \
@@ -1183,25 +1199,15 @@ debug/person_data.o: ../statistics/person_data.cpp ../statistics/person_data.h \
 		../../../univers/6.6.3/mingw_64/include/QtGui/qtguiversion.h \
 		../../../univers/6.6.3/mingw_64/include/QtGui/qundogroup.h \
 		../../../univers/6.6.3/mingw_64/include/QtGui/qundostack.h \
-		../../../univers/6.6.3/mingw_64/include/QtGui/qvalidator.h \
 		../../../univers/6.6.3/mingw_64/include/QtGui/qwindowsmimeconverter.h \
 		../../../univers/6.6.3/mingw_64/include/QtWidgets/QtWidgets \
 		../../../univers/6.6.3/mingw_64/include/QtWidgets/QtWidgetsDepends \
-		../../../univers/6.6.3/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
-		../../../univers/6.6.3/mingw_64/include/QtWidgets/qstyleoption.h \
-		../../../univers/6.6.3/mingw_64/include/QtWidgets/qabstractspinbox.h \
-		../../../univers/6.6.3/mingw_64/include/QtWidgets/qslider.h \
-		../../../univers/6.6.3/mingw_64/include/QtWidgets/qabstractslider.h \
-		../../../univers/6.6.3/mingw_64/include/QtWidgets/qtabbar.h \
-		../../../univers/6.6.3/mingw_64/include/QtWidgets/qtabwidget.h \
-		../../../univers/6.6.3/mingw_64/include/QtWidgets/qrubberband.h \
 		../../../univers/6.6.3/mingw_64/include/QtWidgets/qabstractitemview.h \
 		../../../univers/6.6.3/mingw_64/include/QtWidgets/qaccessiblewidget.h \
 		../../../univers/6.6.3/mingw_64/include/QtWidgets/qaction.h \
 		../../../univers/6.6.3/mingw_64/include/QtGui/QAction \
 		../../../univers/6.6.3/mingw_64/include/QtWidgets/qactiongroup.h \
 		../../../univers/6.6.3/mingw_64/include/QtGui/QActionGroup \
-		../../../univers/6.6.3/mingw_64/include/QtWidgets/qapplication.h \
 		../../../univers/6.6.3/mingw_64/include/QtWidgets/qbuttongroup.h \
 		../../../univers/6.6.3/mingw_64/include/QtWidgets/qcalendarwidget.h \
 		../../../univers/6.6.3/mingw_64/include/QtWidgets/qcheckbox.h \
@@ -1209,7 +1215,6 @@ debug/person_data.o: ../statistics/person_data.cpp ../statistics/person_data.h \
 		../../../univers/6.6.3/mingw_64/include/QtWidgets/qdialog.h \
 		../../../univers/6.6.3/mingw_64/include/QtWidgets/qcolormap.h \
 		../../../univers/6.6.3/mingw_64/include/QtWidgets/qcolumnview.h \
-		../../../univers/6.6.3/mingw_64/include/QtWidgets/qcombobox.h \
 		../../../univers/6.6.3/mingw_64/include/QtWidgets/qcommandlinkbutton.h \
 		../../../univers/6.6.3/mingw_64/include/QtWidgets/qcommonstyle.h \
 		../../../univers/6.6.3/mingw_64/include/QtWidgets/qcompleter.h \
@@ -1393,7 +1398,6 @@ debug/person_data.o: ../statistics/person_data.cpp ../statistics/person_data.h \
 		../../../univers/6.6.3/mingw_64/include/QtCharts/qvxymodelmapper.h \
 		../../../univers/6.6.3/mingw_64/include/QtCharts/qxylegendmarker.h \
 		../../../univers/6.6.3/mingw_64/include/QtCore/QTimer \
-		../../../univers/6.6.3/mingw_64/include/QtWidgets/QApplication \
 		../../../univers/6.6.3/mingw_64/include/QtWidgets/QMainWindow \
 		../../../univers/6.6.3/mingw_64/include/QtGui/QPainter \
 		../../../univers/6.6.3/mingw_64/include/QtWidgets/QToolTip \
@@ -1607,6 +1611,11 @@ debug/widget.o: ../statistics/widget.cpp ../statistics/widget.h \
 		../../../univers/6.6.3/mingw_64/include/QtWidgets/qgraphicsscene.h \
 		../../../univers/6.6.3/mingw_64/include/QtCharts/QPieSlice \
 		../../../univers/6.6.3/mingw_64/include/QtCharts/qpieslice.h \
+		../../../univers/6.6.3/mingw_64/include/QtWidgets/QVBoxLayout \
+		../../../univers/6.6.3/mingw_64/include/QtWidgets/qboxlayout.h \
+		../../../univers/6.6.3/mingw_64/include/QtWidgets/qlayout.h \
+		../../../univers/6.6.3/mingw_64/include/QtWidgets/qlayoutitem.h \
+		../../../univers/6.6.3/mingw_64/include/QtWidgets/qgridlayout.h \
 		ui_widget.h \
 		../../../univers/6.6.3/mingw_64/include/QtWidgets/QApplication \
 		../../../univers/6.6.3/mingw_64/include/QtWidgets/qapplication.h \
@@ -1856,10 +1865,6 @@ debug/widget.o: ../statistics/widget.cpp ../statistics/widget.h \
 		../../../univers/6.6.3/mingw_64/include/QtGui/QAction \
 		../../../univers/6.6.3/mingw_64/include/QtWidgets/qactiongroup.h \
 		../../../univers/6.6.3/mingw_64/include/QtGui/QActionGroup \
-		../../../univers/6.6.3/mingw_64/include/QtWidgets/qboxlayout.h \
-		../../../univers/6.6.3/mingw_64/include/QtWidgets/qlayout.h \
-		../../../univers/6.6.3/mingw_64/include/QtWidgets/qlayoutitem.h \
-		../../../univers/6.6.3/mingw_64/include/QtWidgets/qgridlayout.h \
 		../../../univers/6.6.3/mingw_64/include/QtWidgets/qbuttongroup.h \
 		../../../univers/6.6.3/mingw_64/include/QtWidgets/qcalendarwidget.h \
 		../../../univers/6.6.3/mingw_64/include/QtWidgets/qcheckbox.h \
